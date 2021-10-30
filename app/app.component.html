@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="cabecera">
+    <input class="texto" type="text" [(ngModel)]="textoEntrada">
+  <button (click)="agregar()"  class="añadir1">Lista1</button>
+  <button  (click)="agregar2()" class="añadir2">Lista2</button>
+  <button class="c" (click)="borrar">Eliminar</button>  
+  </div>
+
+
+  <div class="dad">
+    
+       <div  class="tableroListaUnocreado"> 
+        <ul   *ngFor="let item of valores; index as i">
+          <li class="lista1"> 
+           {{item}} {{i}}
+           <button (click)="borrar(i)">Borrar</button>
+           <input type="checkbox"   [(ngModel)]="cajita">
+          </li>
+     
+         </ul>
+       </div>
+        
+      
+    <div  class="tableroListaDoscreado">
+      <ul  *ngFor="let item2 of valores2; index as i">
+        <li class="lista2" >   
+         {{item2}} {{i}}
+         <button (click)="borrar2(i)">Borrar</button>
+         <input type="checkbox"  [(ngModel)]="cajita">
+        </li>
+       </ul> 
+    </div>
+  
+    </div>
+
+  
+      
+
+   <div  *ngFor="let cosas of productos"  >
+    <app-product (addCart) ='clickProduct($event)'   [productos]='cosas'></app-product>
+   </div>
+       
+      
+      
+    
+  
+</body>
+</html>
